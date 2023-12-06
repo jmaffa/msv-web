@@ -1,9 +1,9 @@
 // server.js
-// import express from 'express';
+import express from 'express';
 // import bodyParser from 'body-parser';
 // import cors from 'cors';
 
-const express = require('express');
+// const express = require('express');
 const server = express();
 
 server.get('/api/getbrain', (req, res) => {
