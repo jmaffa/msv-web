@@ -40,14 +40,14 @@ server.post('/api/postbrain', (req, res) => {
     // For example, you can log the data and send a response
     // console.log('Received data:', requestData);
     // res.json({ data: 'b: 0,52,51,284017,128944,41894,28099,10124,23677,1752,1289' });
-
     const receivedData = req.body;
-
+    console.log(receivedData)
     const responseData = {
         data: receivedData.data
     }
     // // console.log(responseData.data)
     brainWaveData.push(responseData.data)
+    console.log(brainWaveData[brainWaveData.length - 1])
     res.json(responseData);
 })
 
