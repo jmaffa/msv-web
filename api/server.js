@@ -34,12 +34,13 @@ server.get('/api/getbrain', (req, res) => {
     // }
     // res.json(responseData)
 })
-
+// NEED TO GO BUT FILL THIS IN AGAIN
 server.post('/api/postbrain', (req, res) => {
     // const requestData = req.body; // Assuming JSON payload
     // Process the incoming data
     // For example, you can log the data and send a response
     // console.log('Received data:', requestData);
+
     res.json({ message: 'Data received and processed successfully' });
     // const receivedData = req.body;
 
