@@ -6,10 +6,29 @@
 const express = require('express');
 const server = express();
 
-server.get('/api/getbrain', (req, res) => {
-  res.json({ message: 'Hello from the Express server!' });
-});
+const brainWaveData = ['test']
+// server.get('/api/getbrain', (req, res) => {
+//   res.json({ message: 'Hello from the Express server!' });
+// });
 
+server.get('/api/getbrain', (req, res) => {
+    const responseData = {
+        data: brainWaveData[brainWaveData.length - 1]
+
+    }
+    res.json(responseData)
+})
+
+server.post('/postbrain', (req, res) => {
+    const receivedData = req.body;
+    
+    const responseData = {
+        data: receivedData.data
+    }
+    // console.log(responseData.data)
+    brainWaveData.push(responseData.data)
+    res.json(responseData);
+})
 module.exports = server;
 
 
