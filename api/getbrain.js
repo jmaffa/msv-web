@@ -1,6 +1,6 @@
-// const server = require('./server');
+const server = require('./server');
 
-// module.exports = server;
+module.exports = server;
 
 // const express = require('express');
 // const router = express.Router();

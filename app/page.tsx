@@ -12,7 +12,7 @@ export default function Home(){
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <div className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="mx-auto my-auto">
         <PostComponent  updateResponse={updateResponse} />
         
@@ -20,7 +20,7 @@ export default function Home(){
       <div className="mx-auto my-auto">
         <DisplayComponent responseData={responseData} />
       </div>
-    </main>
+    </div>
   );
 }
 // export default function Home() {

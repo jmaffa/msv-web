@@ -9,7 +9,7 @@ const server = express();
 let brainWaveData = ['test']
 
 // Middleware to parse JSON bodies
-// server.use(express.json());
+server.use(express.json());
 
 // what is the allow origin of the arduino tho.....
 server.use((req, res, next) => {
