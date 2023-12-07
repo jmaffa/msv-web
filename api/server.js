@@ -18,6 +18,12 @@ server.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.setHeader('Access-Control-Allow-Credentials', 'true');
     next();
+
+    if (req.method === 'OPTIONS') {
+        res.sendStatus(200);
+      } else {
+        next();
+}
 });
 
 server.get('/api/getbrain', (req, res) => {
@@ -28,7 +34,7 @@ server.get('/api/getbrain', (req, res) => {
     res.json(responseData)
 })
 
-server.post('/postbrain', (req, res) => {
+server.post('/api/postbrain', (req, res) => {
     const receivedData = req.body;
 
     const responseData = {
