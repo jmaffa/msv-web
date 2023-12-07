@@ -50,7 +50,7 @@ const PostComponent = ({ updateResponse }) => {
           'Content-Type': 'application/json',
         }}).then(response => response.json())
         .then(data => {
-          // updateResponse(data);
+          updateResponse(data);
           console.log(data)}
         );
     } catch (error){

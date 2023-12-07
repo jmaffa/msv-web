@@ -27,12 +27,11 @@ server.use((req, res, next) => {
 });
 
 server.get('/api/getbrain', (req, res) => {
-    res.json({ message: 'Data from the server' });
-    // const responseData = {
-    //     data: brainWaveData[brainWaveData.length - 1]
-
-    // }
-    // res.json(responseData)
+    // res.json({ message: 'Data from the server' });
+    const responseData = {
+        data: brainWaveData[brainWaveData.length - 1]
+    }
+    res.json(responseData)
 })
 // NEED TO GO BUT FILL THIS IN AGAIN
 server.post('/api/postbrain', (req, res) => {
@@ -40,16 +39,16 @@ server.post('/api/postbrain', (req, res) => {
     // Process the incoming data
     // For example, you can log the data and send a response
     // console.log('Received data:', requestData);
+    // res.json({ data: 'b: 0,52,51,284017,128944,41894,28099,10124,23677,1752,1289' });
 
-    res.json({ message: 'Data received and processed successfully' });
-    // const receivedData = req.body;
+    const receivedData = req.body;
 
-    // const responseData = {
-    //     data: receivedData.data
-    // }
+    const responseData = {
+        data: receivedData.data
+    }
     // // console.log(responseData.data)
-    // brainWaveData.push(responseData.data)
-    // res.json(responseData);
+    brainWaveData.push(responseData.data)
+    res.json(responseData);
 })
 
 // Import routes
