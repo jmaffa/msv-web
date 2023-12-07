@@ -2,22 +2,22 @@
 import React, { useState } from 'react';
 
 const PostComponent = ({ updateResponse }) => {
-  const sendData = async () => {
-    try {
-      const response = await fetch('http://localhost:8000/test', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(),
-      });
+  // const sendData = async () => {
+  //   try {
+  //     const response = await fetch('http://localhost:8000/test', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify(),
+  //     });
 
-      const data = await response.json();
-      updateResponse(data);
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  };
+  //     const data = await response.json();
+  //     updateResponse(data);
+  //   } catch (error) {
+  //     console.error('Error:', error);
+  //   }
+  // };
 
   const mockAttention = 'b: 0,52,51,284017,128944,41894,28099,10124,23677,1752,1289'
   const mockMeditation = 'b: 0,40,51,284017,128944,41894,28099,10124,23677,1752,1289'
@@ -26,8 +26,9 @@ const PostComponent = ({ updateResponse }) => {
   const mockList = [mockAttention, mockMeditation, mockSleep]
   // TODO FILL MOCK WITH req
   const sendBrain = async () => {
+    console.log('test')
     // console.log((Math.floor(Math.random()*3)))
-    // console.log(mockList[(Math.floor(Math.random()*3))])
+    console.log(mockList[(Math.floor(Math.random()*3))])
     try{
       const response = await fetch('https://msv-web.vercel.app/api/postbrain', {
         method: 'POST',
@@ -36,7 +37,7 @@ const PostComponent = ({ updateResponse }) => {
         },
         body: JSON.stringify({ "data": mockList[(Math.floor(Math.random()*3))]}),
       });
-      // console.log(response));
+      console.log(response);
     } catch (error) {
       console.error('Error:', error)
     }
