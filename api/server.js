@@ -19,11 +19,11 @@ server.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Credentials', 'true');
     next();
 
-    if (req.method === 'OPTIONS') {
-        res.sendStatus(200);
-      } else {
-        next();
-}
+//     if (req.method === 'OPTIONS') {
+//         res.sendStatus(200);
+//       } else {
+//         next();
+// }
 });
 
 server.get('/api/getbrain', (req, res) => {
