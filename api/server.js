@@ -3,13 +3,12 @@
 // import bodyParser from 'body-parser';
 // import cors from 'cors';
 
+
 const express = require('express');
 const server = express();
 
-const brainWaveData = ['test']
-// server.get('/api/getbrain', (req, res) => {
-//   res.json({ message: 'Hello from the Express server!' });
-// });
+// Middleware to parse JSON bodies
+server.use(express.json());
 
 // what is the allow origin of the arduino tho.....
 server.use((req, res, next) => {
@@ -26,25 +25,50 @@ server.use((req, res, next) => {
 }
 });
 
-server.get('/api/getbrain', (req, res) => {
-    const responseData = {
-        data: brainWaveData[brainWaveData.length - 1]
+// Import routes
+const getBrainRoute = require('./getbrain');
+const postBrainRoute = require('./postbrain');
 
-    }
-    res.json(responseData)
-})
+// Use routes
+server.use('/api', getBrainRoute);
+server.use('/api', postBrainRoute);
 
-server.post('/api/postbrain', (req, res) => {
-    const receivedData = req.body;
-
-    const responseData = {
-        data: receivedData.data
-    }
-    // console.log(responseData.data)
-    brainWaveData.push(responseData.data)
-    res.json(responseData);
-})
 module.exports = server;
+
+
+
+
+// const brainWaveData = ['test']
+// // server.get('/api/getbrain', (req, res) => {
+// //   res.json({ message: 'Hello from the Express server!' });
+// // });
+
+
+
+// server.get('/api/getbrain', (req, res) => {
+//     const responseData = {
+//         data: brainWaveData[brainWaveData.length - 1]
+
+//     }
+//     res.json(responseData)
+// })
+
+// server.post('/api/postbrain', (req, res) => {
+//     const requestData = req.body; // Assuming JSON payload
+//     // Process the incoming data
+//     // For example, you can log the data and send a response
+//     console.log('Received data:', requestData);
+//     res.json({ message: 'Data received and processed successfully' });
+//     // const receivedData = req.body;
+
+//     // const responseData = {
+//     //     data: receivedData.data
+//     // }
+//     // // console.log(responseData.data)
+//     // brainWaveData.push(responseData.data)
+//     // res.json(responseData);
+// })
+// module.exports = server;
 
 
 // const app = express();
