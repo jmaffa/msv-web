@@ -26,14 +26,14 @@ server.use((req, res, next) => {
 // }
 });
 
-server.get('/api/getbrain', (req, res) => {
-    res.json({ message: 'Data from the server' });
-    // const responseData = {
-    //     data: brainWaveData[brainWaveData.length - 1]
+// server.get('/api/getbrain', (req, res) => {
+//     res.json({ message: 'Data from the server' });
+//     // const responseData = {
+//     //     data: brainWaveData[brainWaveData.length - 1]
 
-    // }
-    // res.json(responseData)
-})
+//     // }
+//     // res.json(responseData)
+// })
 
 server.post('/api/postbrain', (req, res) => {
     const requestData = req.body; // Assuming JSON payload
