@@ -6,9 +6,10 @@
 
 const express = require('express');
 const server = express();
+let brainWaveData = ['test']
 
 // Middleware to parse JSON bodies
-server.use(express.json());
+// server.use(express.json());
 
 // what is the allow origin of the arduino tho.....
 server.use((req, res, next) => {
@@ -25,13 +26,38 @@ server.use((req, res, next) => {
 }
 });
 
-// Import routes
-const getBrainRoute = require('./getbrain');
-const postBrainRoute = require('./postbrain');
+server.get('/api/getbrain', (req, res) => {
+    res.json({ message: 'Data from the server' });
+    // const responseData = {
+    //     data: brainWaveData[brainWaveData.length - 1]
 
-// Use routes
-server.use('/api', getBrainRoute);
-server.use('/api', postBrainRoute);
+    // }
+    // res.json(responseData)
+})
+
+server.post('/api/postbrain', (req, res) => {
+    const requestData = req.body; // Assuming JSON payload
+    // Process the incoming data
+    // For example, you can log the data and send a response
+    console.log('Received data:', requestData);
+    res.json({ message: 'Data received and processed successfully' });
+    // const receivedData = req.body;
+
+    // const responseData = {
+    //     data: receivedData.data
+    // }
+    // // console.log(responseData.data)
+    // brainWaveData.push(responseData.data)
+    // res.json(responseData);
+})
+
+// Import routes
+// const getBrainRoute = require('./getbrain');
+// const postBrainRoute = require('./postbrain');
+
+// // Use routes
+// server.use('/api', getBrainRoute);
+// server.use('/api', postBrainRoute);
 
 module.exports = server;
 
