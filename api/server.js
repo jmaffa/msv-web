@@ -4,7 +4,7 @@
 // import cors from 'cors';
 
 const express = require('express');
-const firebase = require('../firebase/firebase');
+// const firebase = require('../firebase/firebase');
 const admin = require('firebase-admin');
 var serviceAccount = require("../firebase/msv-webapp-firebase-adminsdk-4itu3-cc4bb1bb8c.json");
 ''
