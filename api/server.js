@@ -6,7 +6,7 @@
 
 const express = require('express');
 const server = express();
-let brainWaveData = ['test']
+const brainWaveData = []
 
 // Middleware to parse JSON bodies
 server.use(express.json());
@@ -26,6 +26,8 @@ server.use((req, res, next) => {
 // }
 });
 
+
+// TODO: It's possible i can do this just with a get and just make the get request also send data to the server in its response
 server.get('/api/getbrain', (req, res) => {
     // res.json({ message: 'Data from the server' });
     const responseData = {
@@ -46,6 +48,7 @@ server.post('/api/postbrain', (req, res) => {
         data: receivedData.data
     }
     // // console.log(responseData.data)
+    brainWaveData.push('something')
     brainWaveData.push(responseData.data)
     console.log(brainWaveData[brainWaveData.length - 1])
     res.json(responseData);
