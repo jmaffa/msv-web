@@ -59,9 +59,10 @@ server.post('/api/postbrain', (req, res) => {
     const responseData = {
         data: receivedData.data
     }
-    console.log(responseData.data) // Works up to here
+    // console.log(responseData.data) // Works up to here
     // brainWaveData.push('something')
     brainWaveData.push(responseData.data)
+    console.log(brainWaveData)
     // console.log(brainWaveData[brainWaveData.length - 1])
     res.json(responseData);
 })
