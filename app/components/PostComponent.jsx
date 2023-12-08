@@ -30,7 +30,8 @@ const PostComponent = ({ updateResponse }) => {
     // console.log((Math.floor(Math.random()*3)))
     console.log(mockList[(Math.floor(Math.random()*3))])
     try{
-      const response = await fetch('https://msv-web.vercel.app/api/postbrain', {
+      // const response = await fetch('https://msv-web.vercel.app/api/postbrain', {
+      const response = await fetch('http://localhost:8000/api/postbrain', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -45,7 +46,8 @@ const PostComponent = ({ updateResponse }) => {
 
   const getBrain = async () => {
     try {
-      const response = await fetch('https://msv-web.vercel.app/api/getbrain', {
+      // const response = await fetch('https://msv-web.vercel.app/api/getbrain', {
+        const response = await fetch('http://localhost:8000/api/getbrain', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -68,8 +70,8 @@ const PostComponent = ({ updateResponse }) => {
     //   <button onClick={getBrain}>Get Brain Data</button>
     // </div>
     <div class="flex flex-col">
-      <button onClick={sendBrain} class="bg-blue-500 text-white px-4 py-2 m-2">POST Brain Data</button>
-      <button onClick={getBrain} class="bg-green-500 text-white px-4 py-2 m-2">GET Brain Data</button>
+      <button onClick={sendBrain} className="bg-blue-500 text-white px-4 py-2 m-2">POST Brain Data</button>
+      <button onClick={getBrain} className="bg-green-500 text-white px-4 py-2 m-2">GET Brain Data</button>
     </div>
   );
 };
