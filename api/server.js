@@ -50,17 +50,10 @@ server.post('/api/postbrain', (req, res) => {
     // // console.log(responseData.data)
     // brainWaveData.push('something')
     // brainWaveData.push(responseData.data)
-    console.log(brainWaveData[brainWaveData.length - 1])
+    // console.log(brainWaveData[brainWaveData.length - 1])
     res.json(responseData);
 })
 
-// Import routes
-// const getBrainRoute = require('./getbrain');
-// const postBrainRoute = require('./postbrain');
-
-// // Use routes
-// server.use('/api', getBrainRoute);
-// server.use('/api', postBrainRoute);
 
 module.exports = server;
 
