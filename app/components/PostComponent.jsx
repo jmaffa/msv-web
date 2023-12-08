@@ -30,8 +30,8 @@ const PostComponent = ({ updateResponse }) => {
     // console.log((Math.floor(Math.random()*3)))
     console.log(mockList[(Math.floor(Math.random()*3))])
     try{
-      // const response = await fetch('https://msv-web.vercel.app/api/postbrain', {
-      const response = await fetch('http://localhost:8000/api/postbrain', {
+      const response = await fetch('https://msv-web.vercel.app/api/postbrain', {
+      // const response = await fetch('http://localhost:8000/api/postbrain', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -46,8 +46,8 @@ const PostComponent = ({ updateResponse }) => {
 
   const getBrain = async () => {
     try {
-      // const response = await fetch('https://msv-web.vercel.app/api/getbrain', {
-        const response = await fetch('http://localhost:8000/api/getbrain', {
+      const response = await fetch('https://msv-web.vercel.app/api/getbrain', {
+        // const response = await fetch('http://localhost:8000/api/getbrain', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

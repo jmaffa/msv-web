@@ -21,7 +21,7 @@ admin.initializeApp({
 const server = express();
 // const db = firebase.firestore();
 const brainWaveData = []
-const port = 8000; // REMOVE WHEN DEPLOYED
+// const port = 8000; // REMOVE WHEN DEPLOYED
 
 server.use((req, res, next) => {
     const allowedOrigins = ['http://localhost:3000', 'https://msv-web-jmaffas-projects.vercel.app'];
@@ -185,9 +185,9 @@ server.post('/api/postbrain', async (req, res) => {
 
 
 // REMOVE CHUNK WHEN DEPLOYED UP TO MODULE EXPORTS
-server.listen(port, () => {
-    console.log(`Server is running at http://localhost:${port}`);
-  });
+// server.listen(port, () => {
+//     console.log(`Server is running at http://localhost:${port}`);
+//   });
 
 
 
