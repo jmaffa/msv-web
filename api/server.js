@@ -9,16 +9,23 @@ const server = express();
 const brainWaveData = []
 
 server.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    const allowedOrigins = ['http://localhost:3000', 'https://msv-web-jmaffas-projects.vercel.app'];
+    const origin = req.headers.origin;
+
+    if (allowedOrigins.includes(origin)) {
+        res.setHeader('Access-Control-Allow-Origin', origin);
+    }
+
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.setHeader('Access-Control-Allow-Credentials', 'true');
+
     if (req.method === 'OPTIONS') {
         res.sendStatus(200);
     } else {
         next();
     }
-    next();
+});
 // Middleware to parse JSON bodies
 server.use(express.json());
 
@@ -30,7 +37,6 @@ server.use(express.json());
 //       } else {
 //         next();
 // }
-});
 
 
 // TODO: It's possible i can do this just with a get and just make the get request also send data to the server in its response
@@ -53,7 +59,7 @@ server.post('/api/postbrain', (req, res) => {
     const responseData = {
         data: receivedData.data
     }
-    console.log(responseData.data)
+    console.log(responseData.data) // Works up to here
     // brainWaveData.push('something')
     brainWaveData.push(responseData.data)
     // console.log(brainWaveData[brainWaveData.length - 1])
